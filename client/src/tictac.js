@@ -71,10 +71,17 @@ class Board extends React.Component {
   }
 
   render() {
+	var submitGame;
     const winner = calculateWinner(this.state.squares);
 	var status;
-	if(winner)
+	if(winner) {
 		status = 'Winner: ' +winner;
+		submitGame = (<form action="http://localhost:9000/testAPI/send" method="POST">
+		<h3>Submit Game</h3>
+		<input type="hidden" id="game" name="game" value={calculateWinner(this.state.squares) + "," +this.state.squares}></input>
+		<button type ="submit">Submit</button>
+		</form>);
+	}
 	else
 		status = (this.state.xIsNext ? 'X' : 'O') +"'s turn";
 
@@ -82,6 +89,7 @@ class Board extends React.Component {
     return ( 
       <div>
         <div className="status">{status}</div>
+		<div className="status">{submitGame}</div>
         <div className="board-row">
           {this.renderSquare(0)}
           {this.renderSquare(1)}
@@ -118,6 +126,9 @@ class Game extends React.Component {
     );
   }
 }
+
+export default Game;
+
 
 // ========================================
 
