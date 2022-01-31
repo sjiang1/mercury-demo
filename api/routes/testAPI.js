@@ -3,7 +3,7 @@ const app = express();
 
 var router = express.Router();
 //var games = "O,O,,X,O,X,,O,,,X,X,,O,X,O,,X,,";
-var games = "O,O,,X,O,X,,O,,";
+//var games = "O,O,,X,O,X,,O,,";
 var bodyParser = require('body-parser');
 
 var MongoClient = require('mongodb').MongoClient;
