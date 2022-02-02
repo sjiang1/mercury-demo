@@ -1,3 +1,5 @@
+require('dotenv').config()
+
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
@@ -7,10 +9,11 @@ require('./database');
 //-----
 app.use(bodyParser.json());
 app.use(cors());
+
 //-----
 // API
 const testAPI = require('./api/testAPI');
-app.use('./api/testAPI', testAPI);
+app.use('/api/testAPI', testAPI);
 //-----
 app.use(express.static(path.join(__dirname, '../build')))
 app.get('*', (req, res) => {

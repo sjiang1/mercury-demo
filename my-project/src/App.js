@@ -16,7 +16,7 @@ class fromServer extends React.Component {
 	}
 
     callAPI() {
-        fetch("https://hidden-earth-36379.herokuapp.com/backend/api/testAPI.js")
+        fetch("/api/testAPI")
             .then(res => res.text())
             .then(res => this.setState({ apiResponse: res }))
             .catch(err => err);

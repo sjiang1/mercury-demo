@@ -76,7 +76,7 @@ class Board extends React.Component {
 	var status;
 	if(winner) {
 		status = 'Winner: ' +winner;
-		submitGame = (<form action="https://hidden-earth-36379.herokuapp.com/../backend/api/testAPI" method="POST">
+		submitGame = (<form action="/api/testAPI/send" method="POST">
 		<h3>Submit Game</h3>
 		<input type="hidden" id="game" name="game" value={calculateWinner(this.state.squares) + "," +this.state.squares}></input>
 		<button type ="submit">Submit</button>
